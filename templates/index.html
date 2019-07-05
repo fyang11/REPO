@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <table class="table table-bordered">
+        <thead>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Total</th>
+        </thead>
+        <tbody>
+            {% for symbol in symbols %}
+            {% for stockDisplay in stockDisplays %}
+            <tr>
+                <td>{{ symbol }}</td>
+                <td>{{ stockDisplay }}</td>
+                <td>{{ usdPrice }}</td>
+                <td>{{ usdTotal }}</td>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Remaining Cash:</td>
+                <td>{{ usdCash }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
